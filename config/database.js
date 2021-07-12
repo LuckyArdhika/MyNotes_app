@@ -1,11 +1,11 @@
 // config/database.js
 module.exports = {
     'connection': {
-        'host': 'localhost',
-        'user': 'root',
-        'password': ''
+        'host': 'db4free.net',
+        'user': 'luckyol9',
+        'password': 'Y@BpB#v!!8DDfy5'
     },
-	'database': 'mynotes',
+	'database': 'catatankudgnmyno',
     'users_table': 'users',
     'notes_table': 'notes'
 };
