@@ -1,0 +1,23 @@
+{
+  "name": "node-authentication",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^2.3.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "math": "^0.0.3",
+    "morgan": "^1.10.0",
+    "mysql": "^2.7.0",
+    "nodemailer": "^6.6.2",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}
