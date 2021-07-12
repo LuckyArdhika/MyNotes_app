@@ -4,9 +4,7 @@ const { rand } = require('../config/passport'); //terakhir di edit kemungkinan i
 var dbconfig = require('../config/database');
 var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.database);
-// import('../config/passport'); mengimport dari passport. respon: module not found
 
-console.log(rand); // undefined, why?
 // app/routes.js
 module.exports = function(app, passport) {
 
