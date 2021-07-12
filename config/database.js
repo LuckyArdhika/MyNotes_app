@@ -5,7 +5,7 @@ module.exports = {
         'user': 'sql6424525',
         'password': 'H9aukY785a'
     },
-	'database': 'catatankudgnmyno',
+	'database': 'sql6424525',
     'users_table': 'users',
     'notes_table': 'notes'
 };
