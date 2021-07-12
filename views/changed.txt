@@ -1,0 +1,53 @@
+<!-- ini hanyalah page eksperimen developer tentang perkodingan -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Display some text when the checkbox is checked:</p>
+
+<label id="text" for="myCheck">Checkbox:</label> 
+<input type="checkbox" id="myCheck" onclick="myFunction()">
+
+<script>
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+    text.innerHTML = "Checked";
+  } else {
+     text.innerHTML = "Checkbox";
+  }
+}
+</script>
+
+</body>
+</html>
+
+<% notes.forEach((note) => { %>
+  <% }); %> 
+
+  <!-- undefined artinya ya undefined -->
+  <!-- jika browser muter muter loading lama banget dan gak selesai selesai masalahnya adalah di backend pastikan membuat struktur kode seminimal mungkin -->
+  <!-- masalah select dan id terselect pada modal dan selected (form submit) -->
+
+  <div class="tool select_note">
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+      <form action="<%= note.id %>" method="">
+      <input type="checkbox" id="myCheck<%= note.id %>" onclick="myFunction()" class="btn-check btn-sm" autocomplete="off">
+      <label class="btn btn-outline-primary btn-sm text" id="text<%= note.id %>" for="myCheck">Select</label> 
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function myFunction() {
+    const checkBox = document.getElementById("myCheck<%= note.id %>");
+    const tls = document.getElementById("text<%= note.id %>");
+    if (checkBox.checked == true){
+      tls.innerHTML = "Selected";
+    } else {
+      tls.innerHTML = "Select";
+    }
+  }
+  </script>
+  <!--kenapa id yang di panggil sudah sesuai tapi tls tidak berubah menjadi selected? apakah karena terlalu benyak script dengan kode yang sama membuat browser binggung? -->
+<!-- select checkbox button yang di hapus dari project mynotes -->

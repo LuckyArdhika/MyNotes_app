@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Steps</title>
+        <style>
+            .container {
+                text-align: center;
+                margin: 12%;
+                background-color: antiquewhite;
+                padding: 5%;
+            } h3 {
+                display: block;
+                margin: auto;
+            } form {
+                display: block;
+                margin: auto;
+            } .alert {
+                background-color: red;
+                color: white;
+            }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <% if (message && message.length > 0){ %>
+            <div class="alert"><%= message %></div>
+        <% } %> 
+        <h4>Please Verify Your Email First!</h4>
+        <form action="/verification" method="POST">
+            <input type="number" name="otp" required>
+            <input type="submit">
+        </form>
+        <p>We has been sent code verification to your email!
+        </br>
+        Please check on login or spam folder to field number to the input and click submit
+        </p>
+    </div>
+</body>
+</html>

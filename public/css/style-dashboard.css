@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+html, body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+} button {
+  margin: 2px;
+} .notiv {
+  display: flex;
+  flex-direction: row;
+  float: right;
+  flex-wrap: wrap;
+  justify-content: space-around;
+} .regards {
+  color: rgb(255, 255, 255) !important;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* universal ver */
+.navbar-brand p {
+    font-family: 'Pacifico';
+    font-size: 20px;
+    margin-right: 3px;
+    margin-bottom: -1px;
+    color: rgb(66, 32, 255);
+} .carousel {
+    margin-top: 80px;
+} .kolom {
+    height: fit-content;
+    padding: 20px;
+    width: 100%;
+}
+/* Form Styling */
+::-webkit-input-placeholder {
+    text-align: center;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    text-align: center;  
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;  
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: center; 
+ }
+ input {
+    font-weight: 500;
+    font-size: 19;
+    border: 5px;
+    border-bottom: 1px solid rgba(153, 81, 81, 0.466);
+    text-transform: capitalize;
+} textarea {
+    border: 0px;
+    border-bottom: 1px solid rgba(165, 42, 42, 0.336);
+} input:focus, textarea:focus {
+    outline: none;
+} .tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-left: auto;
+} .tool > input, .text {
+  width: 68px;
+  margin: 2px;
+} .toast-body {
+  background-color: chartreuse;
+  padding: 5px;
+  z-index: 99;
+}
+
+/* screen ver */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  form > .simpan {
+    width: 330px;
+  }.tool > input, .text {
+    margin: 2px;
+  } .pro {
+    margin: 2px;
+    margin-left: -8px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  form > .simpan {
+    width: 500px;
+  } .pro {
+    margin: 2px;
+    margin-left: -8px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  form > .simpan {
+    width: 500px;
+  } .pro {
+    margin: 2px;
+    margin-left: -8px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  form > .simpan {
+    width: 668px;
+  }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  form > .simpan {
+    width: 892px;
+  }
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  form > .simpan {
+    width: 1070px;
+  }
+}
+
+/*Penghalang*/
+.penghalang {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+/*Modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/*Tombol X*/
+#tutup {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#tutup:hover,
+#tutup:focus {
+  color: black;
+  cursor: pointer;
+}
+
+/* footer */
+footer {
+  background-color: rgb(87, 87, 255);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}.ikon {
+  position: absolute;
+  top: -70px;
+  padding: 15px;
+} .ikon svg {
+  color: white;
+  width: 35px;
+  margin: 4px;
+}
+.brand {
+  font-family: 'Pacifico';
+  margin-top: -80px;
+  border-bottom: 5px solid ;
+  width: 38px;
+} .brand::after {
+  content: '';
+  display: flex;
+  border-bottom: 5px solid ;
+  float: right;
+  width: 104px;
+  margin-right: -133px;
+
+}
+small {
+  font-size: calc(12px + (15 - 12) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.bold-text {
+  color: #ffffff !important
+}
+
+.mt-55 {
+  margin-top: calc(50px + (60 - 50) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+h3 {
+  font-size: calc(34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.social {
+  font-size: 21px !important
+}
+
+.rights {
+  font-size: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.list-unstyled > li > a {
+  text-decoration: none;
+  color: white;
+}
+.ikon {
+  position: relative;
+  margin-bottom: 10px;
+} .brand {
+  position: relative;
+  margin: 0px 0px 80px 790px;
+} 

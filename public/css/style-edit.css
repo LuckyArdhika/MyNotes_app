@@ -1,0 +1,38 @@
+/* global $ mobile */
+html, body {
+    margin: 0;
+    background-color: rgb(228, 226, 255);
+} .container {
+    padding: 10px;
+} input, textarea {
+    display: block;
+    margin: 2px auto 2px auto;
+} h2 {
+    text-align: center;
+} a {
+    text-decoration: none;
+    font-size: 50px;
+} textarea, #notift_fill {
+    width: 90%;
+    border: solid rgb(173, 173, 255);
+    border-radius: 4px;
+} #notift_fill {
+    font-size: large;
+    font-weight: 300;
+    text-transform: capitalize;
+} textarea {
+    font-size: medium;
+} .simpan {
+    background-color: rgb(73, 189, 73);
+    color: white;
+}
+
+/* desktop */
+@media only screen and (min-width: 900px){
+    .container {
+        padding: 5%;
+    }
+} span {
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Your Note</title>
+    <link rel="stylesheet" href="../css/style-edit.css">
+</head>
+<body>
+  <div class="container">
+    <a href="/dashboard" data-description="Cancel, back to dashboard">
+      &#8592;
+    </a>
+    <div class="area">
+          <h2>Edit Your Notes.</h2>
+          <form action="/update/<%= notes.id %>" method="POST">
+              <input onclick="cek_notift()" onkeyup="cek_notift()" onkeydown="cek_notift()" type="text" name="title" id="notift_fill" value="<%= notes.title %>">
+              <textarea onclick="cek()" onkeyup="cek()" onkeydown="cek()" name="note" onkeyup="check()" id="area" cols="50" rows="10"><%= notes.note %></textarea>
+              <div class="notiv">
+                <span id="notift"></span>
+                <span id="notif"></span>
+              </div>
+              <input type="reset" onclick="clear()" value="Reset">
+              <input class="simpan" type="submit" value="Save">
+          </form>
+        </div>
+    </div>
+    <script src="../js/character_counter.js"></script>
+</body>
+</html>
