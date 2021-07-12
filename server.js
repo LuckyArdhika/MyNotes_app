@@ -12,7 +12,6 @@ var path	 = require('path');
 
 var passport = require('passport');
 var flash    = require('connect-flash');
-const { verify } = require('./config/verify');
 
 // add static file assets
 app.use(express.static(path.resolve(__dirname, 'public')));
