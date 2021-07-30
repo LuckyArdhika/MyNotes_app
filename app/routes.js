@@ -2,8 +2,12 @@
 var mysql = require('mysql');
 const { rand } = require('../config/passport'); //terakhir di edit kemungkinan ini yang undefined di console
 var dbconfig = require('../config/database');
+const { session } = require('passport');
+const nodemailer = require("nodemailer");
+
 var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.database);
+// import('../config/passport'); mengimport dari passport. respon: module not found
 
 // app/routes.js
 module.exports = function(app, passport) {
@@ -28,7 +32,7 @@ module.exports = function(app, passport) {
 	app.post('/login', passport.authenticate('local-login', {
             successRedirect : '/dashboard', // redirect to the secure dashboard section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
-            failureFlash : true // allow flash messages
+            failureFlash : true, // allow flash messages
 		}),
         function(req, res) {
             console.log("hello");
@@ -49,15 +53,72 @@ module.exports = function(app, passport) {
 	// show the signup form
 	app.get('/signup', function(req, res) {
 		// render the page and pass in any flash data if it exists
-		res.render('signup.ejs', { message: req.flash('signupMessage') });
+		res.render('signup.ejs', { message: req.flash('signupMessage')});
 	});
 
-	app.get('/verification', function(req, res) {
-		res.render('verification.ejs', { message: req.flash('verifyMessage') });
+	app.get('/entermail', function(req, res, next) { //referer from login page
+		// bagaimana cara agar url hanya dirender ketika hanya menerima rujukan dari url yang ditentukan? referer jawabannya
+		// protected area using referer. reference: https://stackoverflow.com/questions/26293380/prevent-direct-access-to-html-page-in-node-js
+		let referrer = req.get('referrer'); // get url referrer
+		let host = req.get('host'); // get link host
+		console.log(host);
+		console.log(referrer); // show url referrer except direct will show undefined
+		if (referrer !== 'http://'+host+'/login'){ //host setup
+			return res.status(404).end('Page Protected');
+		} else {
+			res.render('entermail.ejs', { message: req.flash('entermailMsg')});
+		}
+	})
+
+	app.get('/verification', function(req, res, next) { //referef from entermail page
+		async function mailer(){
+
+			// let host = "localhost:3000";
+
+			// create reusable transporter object using the default SMTP transport
+			let transporter = nodemailer.createTransport({
+			host: "smtp.gmail.com",
+			port: 465,
+			secure: true, // true for 465, false for other ports
+			auth: {
+				user: 'mynotesverify@gmail.com',// email
+				pass: 'SAVAGE110',// password
+				expires: 2000,
+			},
+			});
+		
+			// send mail with defined transport object
+			let info = await transporter.sendMail({
+				from: '"MyNotes Email Verification" <mynotesverify@mynotes.com>', // sender address
+				to: req.query.username, // list of receivers // no receipent defined
+				subject: "Verify Your Email", // Subject line
+				// text: "Test text", // plain text body
+				html: "<p>Hi "+req.query.username+", dont share this code to another human, include <b>MyNotes</b> team!</p></br>Your Code Is:"+rand, // html body
+				});
+		
+			console.log("Message sent: %s", info.messageId);
+			// Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+			// khusus link verifikasi
+			// if ((req.protocol + "://" + req.get('host')) == ("http://"+ host)){
+			//     if(req.query.id == rand){
+			//         connection.query("UPDATE users SET isVerified=? WHERE email=?",[1, newUserMysql.username]);
+			//     }
+			// }
+			}
+			let referrer = req.get('referrer'); // get url referrer
+			let host = req.get('host'); // get link host
+			console.log(referrer); // show url referrer except direct will show undefined
+			if (referrer !== 'http://'+host+'/entermail'){ //host setup
+				return res.status(404).end('Page Protected');
+			} else {
+			mailer().rand; //memanggil function mailer
+			res.render('verification.ejs', { message: req.flash('verifyMessage') });
+			}
 	});
 
 	app.post('/verification', (req, res) => {
-		console.log(rand);
+		// console.log(rand);
 		if (req.body.otp == rand){
 			connection.query('UPDATE users SET isVerified=? WHERE email=?',[1, req.user.email]);
 			res.redirect('/dashboard');
