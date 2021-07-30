@@ -171,6 +171,24 @@ h3 {
 }
 
 /* mobile ver */
+@media only screen and (max-width: 400px){
+    .noteb-right {
+        display: none;
+    } .about {
+        height: 690px;
+    } html {
+        overflow-x: hidden;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 1200px){
+    .noteb-right {
+        display: none;
+    } html {
+        overflow-x: hidden;
+    }
+}
+
 /* big devices (landscape tablets and large phones, tab and minibook 1200px and down) */
 @media only screen and (max-width: 1200px) {
     .tombol {
