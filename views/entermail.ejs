@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Resend Verification</title>
+</head>
+<body>
+    <% if (message.length > 0) { %>
+		<div class="alert alert-danger"><%= message %></div>
+	<% } %>
+    <form action="/verification" method="GET">
+        <!-- How to get input from GET requests? using req.query -->
+        <label for="input">Inser Your Email</label>
+        <input type="email" placeholder="yourmail@domain.ext" name="username" id="username">
+        <button type="submit" value="">Resend Code</button>
+    </form>
+</body>
+</html>
