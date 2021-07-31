@@ -1,11 +1,13 @@
 // config/database.js
 module.exports = {
     'connection': {
-        'host': 'sql6.freemysqlhosting.net',
-        'user': 'sql6424525',
-        'password': 'H9aukY785a'
+        'host': 'containers-us-west-11.railway.app',
+        'user': 'root',
+        'password': 'QNLIqM0L2CORHIeu4bxX',
+	'port': '5458',
+	'protocol': 'tcp'
     },
-	'database': 'sql6424525',
+	'database': 'railway',
     'users_table': 'users',
     'notes_table': 'notes'
 };
