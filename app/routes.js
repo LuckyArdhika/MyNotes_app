@@ -82,7 +82,7 @@ module.exports = function(app, passport) {
 			secure: true, // true for 465, false for other ports
 			auth: {
 				user: 'mynotesverify@gmail.com',// email
-				pass: 'SAVAGE110',// password
+				pass: PasswordHere,// password
 				expires: 2000,
 			},
 			});
